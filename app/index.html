@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiper Playground</title>
+    <link rel="stylesheet" href="dist/css/swiper.css">
+    <meta name="viewport" content="width=device-width">
+    <script src="dist/js/swiper.js"></script>
+    <script src="dist/js/swiper.animate1.0.2.min.js"></script>
+    <link rel="stylesheet" href="dist/css/animate.css">
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-scrollbar"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <div class="circle ani"
+                     swiper-animate-effect="fadeInUp"
+                     swiper-animate-duration="0.5s"
+                     swiper-animate-delay="0.3s">
+                </div>
+                <div class="pic ani" swiper-animate-effect="fadeInUp"
+                     swiper-animate-duration="0.5s"
+                     swiper-animate-delay="0.3s">
+                    
+                </div>
+            </div>
+            <div class="swiper-slide slide2"><div class="circle ani"
+                                                  swiper-animate-effect="fadeInUp"
+                                                  swiper-animate-duration="0.5s"
+                                                  swiper-animate-delay="0.3s">
+            </div>
+                <div class="pic ani" swiper-animate-effect="fadeInUp"
+                     swiper-animate-duration="0.5s"
+                     swiper-animate-delay="0.3s">
+
+                </div></div>
+            <div class="swiper-slide slide3"><div class="circle ani"
+                                                  swiper-animate-effect="fadeInUp"
+                                                  swiper-animate-duration="0.5s"
+                                                  swiper-animate-delay="0.3s">
+            </div>
+                <div class="pic ani" swiper-animate-effect="fadeInUp"
+                     swiper-animate-duration="0.5s"
+                     swiper-animate-delay="0.3s">
+
+                </div></div>
+            <div class="swiper-slide slide4"><div class="circle ani"
+                                                  swiper-animate-effect="fadeInUp"
+                                                  swiper-animate-duration="0.5s"
+                                                  swiper-animate-delay="0.3s">
+            </div>
+                <div class="pic ani" swiper-animate-effect="fadeInUp"
+                     swiper-animate-duration="0.5s"
+                     swiper-animate-delay="0.3s">
+
+                </div></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <style>
+    body, html {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        height:100%;
+        width:100%;
+        overflow: hidden;
+    }
+    .swiper-container {
+        width: 100%;
+        height:100%;
+        margin:auto;
+    }
+    .swiper-slide {
+        background: #f1f1f1;
+        color:#000;
+        text-align: center;
+        line-height: 600px;
+    }
+    .slide1{background:url("img/back1.png");background-size: cover;}
+    .slide2{background:url("img/back2.png");background-size: cover;}
+    .slide3{background:#2C0D39;}
+    .slide4{background:url("img/back2.png");background-size: cover;}
+        .circle{width: 3.62rem;height: 3.62rem;background: url("img/tite.png") no-repeat;background-size: 6rem;
+        margin: auto;margin-top: 3.8rem;}
+        .pic{width:11.87rem;height:6.75rem;background: url("img/tite.png") no-repeat;background-size: 6rem;
+            margin: auto;background: url("img/pic.png");background-size:cover;margin-top: 8rem;}
+    </style>
+    <script src="dist/js/swiper.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 0,
+            slidesPerView: 1,
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            grabCursor: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            scrollbar: '.swiper-scrollbar',
+            pagination: '.swiper-pagination',
+        });
+        function resize(originSize,type) {
+            var type=type||"x";
+            if(type=="x"){
+                var widths=document.documentElement.clientWidth;
+                var scale=widths/originSize*100+"px";
+            }else if(type=="y"){
+                var heights=document.documentElement.clientHeight;
+                var scale=heights/originSize*100+"px";
+            }
+        }
+        window.onload=function () {
+            resize(1334,"x")
+        }
+    </script>
+    <script>
+        var mySwiper = new Swiper ('.swiper-container', {
+            onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            }
+        })
+    </script>
+</body>
+</html>
